@@ -1,0 +1,263 @@
+/* === CSS pour Fitness Mate === */
+
+@import url('https://fonts.googleapis.com/css2?family=Anton&display=swap');
+
+:root {
+  --jaune: #FFD600;
+  --noir: #000000;
+  --blanc: #FFFFFF;
+}
+
+body {
+  margin: 0;
+  font-family: 'Anton', sans-serif;
+  color: var(--noir);
+  background-color: var(--blanc);
+}
+
+/* === Header / Bannière === */
+.banniere {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 30px;
+  z-index: 10000; /* couche au-dessus du contenu */
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 30px;
+  border-radius: 8px;
+}
+
+.logo {
+  height: 200px;
+  width: auto;
+}
+
+.texte-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nom-site {
+  font-size: 3rem;
+  font-weight: bold;
+  color: var(--noir);
+}
+
+.slogan {
+  font-size: 1.2rem;
+  color: var(--noir);
+  margin-top: 5px;
+  text-align: left;
+}
+
+/* === Menu burger === */
+.menu-burger {
+  position: fixed; /* reste cliquable partout */
+  left: 20px;
+  top: 30px;
+  width: 35px;
+  height: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  z-index: 10002; /* au-dessus du menu */
+}
+
+.menu-burger.active {
+  transform: rotate(90deg);
+}
+
+.menu-burger span {
+  display: block;
+  height: 4px;
+  width: 100%;
+  background-color: var(--noir);
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* === Menu déroulant animé === */
+.menu-deroulant {
+  background-color: var(--jaune);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 250px;
+  height: 100vh;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  padding-top: 100px;
+  border-right: 3px solid var(--noir);
+  box-shadow: 4px 0 12px rgba(0, 0, 0, 0.15);
+  z-index: 10001; /* au-dessus du contenu, sous le burger */
+}
+
+.menu-deroulant.active {
+  transform: translateX(0);
+}
+
+.menu-deroulant ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.menu-deroulant li {
+  padding: 20px;
+  border-bottom: 1px solid var(--noir);
+}
+
+.menu-deroulant li a {
+  color: var(--noir);
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+}
+
+/* === Message d'accueil === */
+.message-accueil {
+  position: relative;
+  z-index: 1; /* sous le menu */
+  border: 3px solid var(--jaune);
+  padding: 30px;
+  margin: 40px auto;
+  width: 80%;
+  background-color: var(--blanc);
+  font-size: 1.2rem;
+  line-height: 1.6;
+  text-align: center;
+  color: var(--noir);
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.05);
+}
+
+/* === Icône burger animée === */
+.menu-burger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(9px, 9px);
+}
+
+.menu-burger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.menu-burger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(9px, -9px);
+}
+
+/* === Section services === */
+.nos-services {
+  padding: 50px 0;
+  text-align: center;
+}
+
+.nos-services h2 {
+  font-size: 2.5rem;
+  color: var(--noir);
+  margin-bottom: 40px;
+}
+
+.services-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px; /* Espace entre les cartes */
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.service-card {
+  background-color: var(--jaune);
+  border: 2px solid var(--noir);
+  border-radius: 12px;
+  width: 280px;
+  padding: 30px 20px;
+  text-align: center;
+  opacity: 0; /* avant apparition */
+  transition: box-shadow 0.3s ease;
+}
+
+.service-card.visible {
+  /* apparition via animation (ne laisse pas transform actif) */
+  animation: fadeInCard 0.8s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+}
+
+.service-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.service-card p {
+  font-size: 1rem;
+  margin-bottom: 20px;
+}
+
+.service-card a {
+  text-decoration: none;
+  background-color: var(--noir);
+  color: var(--blanc);
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+}
+
+.service-card a:hover {
+  background-color: #333;
+}
+
+/* Délais d’apparition progressive */
+.service-card:nth-child(1) { animation-delay: 0.2s; }
+.service-card:nth-child(2) { animation-delay: 0.4s; }
+.service-card:nth-child(3) { animation-delay: 0.6s; }
+.service-card:nth-child(4) { animation-delay: 0.8s; }
+.service-card:nth-child(5) { animation-delay: 1s; }
+.service-card:nth-child(6) { animation-delay: 1.2s; }
+.service-card:nth-child(7) { animation-delay: 1.4s; }
+.service-card:nth-child(8) { animation-delay: 1.6s; }
+.service-card:nth-child(9) { animation-delay: 1.8s; }
+
+/* === Apparitions au scroll (sans transform persistant) === */
+.reveal-on-scroll { opacity: 0; }
+.reveal-on-scroll.visible { animation: fadeInUp 0.8s ease-out forwards; }
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: none; } /* pas de stacking context après l'anim */
+}
+
+/* === Responsive === */
+@media (max-width: 1000px) {
+  .service-card { width: calc(50% - 40px); } /* 2 par ligne sur tablette */
+}
+
+@media (max-width: 600px) {
+  .service-card { width: 100%; } /* 1 par ligne sur mobile */
+}
+
+@keyframes fadeInCard {
+  from {
+    opacity: 0;
+    transform: translateY(30px) scale(0.98);
+    filter: blur(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+    filter: blur(0);
+  }
+}
