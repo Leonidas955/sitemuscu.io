@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Accueil - Fitness Mate</title>
+  <link rel="stylesheet" href="CSS/accueil.css">
+</head>
+<body>
+
+  <header class="banniere reveal-on-scroll">
+    <div class="logo-container fade-in">
+  <a href="index.html">
+  <img src="Image/logo.png" alt="Logo Fitness Mate" class="logo">
+</a>
+
+  <div class="texte-container fade-in">
+    <span class="nom-site fade-in">Fitness Mate</span>
+    <p class="slogan fade-in">Ton allié muscu, nutrition et progrès !</p>
+  </div>
+</div>
+
+    <div class="menu-burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="menu-deroulant" id="menu">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="methode.html">Méthodes d'entraînement</a></li>
+        <li><a href="programme.html">Programme d'entraînement</a></li>
+        <li><a href="tracker.html">Macro Tracker</a></li>
+        <li><a href="complement.html">Guide complément alimentaire</a></li>
+        <li><a href="accessoir.html"> Accessoir pour s'entrainer</a></li>
+        <li><a href="vetement.html"> Vêtement pour le fitness et autres</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="video.html">Vidéo</a></li>
+        <li><a href="assisatance.html">Assistance</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+  </script>
+
+  <section class="message-accueil reveal-on-scroll">
+  <p>
+    Bienvenue sur le site officiel de Fitness Mate !<br><br>
+    Grâce à ce site, vous pourrez progresser dans tous les domaines !<br><br>
+    Vous avez à disposition des programmes complets, expliqués et illustrés.<br>
+    Mais aussi une aide nutritionnelle avec un tracker de macros,<br>
+    ainsi que toutes les explications sur les compléments alimentaires.<br><br>
+    Pour tout service, tout se retrouve ci-dessous ou via le menu en haut à gauche de votre écran.<br><br>
+    Maintenant, à vous de jouer !
+  </p>
+</section>
+
+<section class="nos-services">
+  <h2>Nos Services</h2>
+  <div class="services-grid">
+
+    <div class="service-card">
+      <h3>💪 Méthodes d'entraînement</h3>
+      <p>Explore PPL, Bro Split, FullBody... et choisis celle qui te correspond.</p>
+      <a href="methode.html">Découvrir</a>
+    </div>
+
+    <div class="service-card">
+      <h3>📋 Programmes</h3>
+      <p>Des routines efficaces, claires et validées par des coachs.</p>
+      <a href="programme.html">Voir les programmes</a>
+    </div>
+
+    <div class="service-card">
+      <h3>🥗 Tracker de macros</h3>
+      <p>Gère tes calories et tes protéines automatiquement.</p>
+      <a href="tracker.html">Accéder au tracker</a>
+    </div>
+
+    <div class="service-card">
+      <h3>💊 Guide compléments alimentaire </h3>
+      <p>Un guide complet sur tous les compléments alimentaires !</p>
+      <a href="complement.html">Accéder au tracker</a>
+    </div>
+
+    <div class="service-card">
+      <h3>👕 Vêtements</h3>
+      <p>Découvre notre sélection de vêtements adaptés au fitness.</p>
+      <a href="vetement.html">Voir les vêtements</a>
+    </div>
+
+    <div class="service-card">
+      <h3>🎽 Accessoires</h3>
+      <p>Découvre notre sélection d'accessoires pour t'entraîner efficacement.</p>
+      <a href="accessoir.html">Voir les accessoires</a>
+    </div>
+
+    <div class="service-card">
+      <h3>🏋️ Coaching</h3>
+      <p>Demande l'aide d'un coach pour t'aider à débuter et progresser !</p>
+      <a href="coaching.html">Accéder au coaching</a>
+    </div>
+
+    <div class="service-card">
+      <h3>🎥 Vidéos</h3>
+      <p>Des tutoriels pour t'aider à progresser.</p>
+      <a href="video.html">Voir les vidéos</a>
+    </div>
+
+    <div class="service-card">
+      <h3>❓ Assistance</h3>
+      <p>Une question ? Besoin d'aide ? Contacte-nous !</p>
+      <a href="assisatance.html">Nous contacter</a>
+    </div>
+
+  </div>
+
+ <script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      } else {
+        entry.target.classList.remove('visible');
+      }
+    });
+  }, {
+    threshold: 0.1
+  });
+
+  document.querySelectorAll('.service-card, .reveal-on-scroll').forEach(el => {
+    observer.observe(el);
+  });
+</script>
+</section>
+
+</body>
+</html>

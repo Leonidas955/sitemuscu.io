@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <title>Méthodes - Fitness Mate</title>
+  <link rel="stylesheet" href="CSS/programme.css"> 
+</head>
+<body>
+
+  <!-- Bannière + Logo + Menu Burger -->
+  <header class="banniere">
+    <div class="logo-container fade-in">
+  <a href="index.html">
+  <img src="Image/logo.png" alt="Logo Fitness Mate" class="logo">
+</a>
+
+
+  <div class="texte-container fade-in">
+    <span class="nom-site fade-in">Fitness Mate</span>
+    <p class="slogan fade-in">Ton allié muscu, nutrition et progrès !</p>
+  </div>
+</div>
+
+
+    <div class="menu-burger" id="burger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+
+    <nav class="menu-deroulant" id="menu">
+      <ul>
+        <li><a href="index.html">Accueil</a></li>
+        <li><a href="methode.html">Méthodes d'entraînement</a></li>
+        <li><a href="programme.html">Programme d'entraînement</a></li>
+        <li><a href="tracker.html">Macro Tracker</a></li>
+        <li><a href="complement.html">Guide complément alimentaire</a></li>
+        <li><a href="accessoir.html"> Accessoir pour s'entrainer</a></li>
+        <li><a href="vetement.html"> Vêtement pour le fitness et autres</a></li>
+        <li><a href="coaching.html">Coaching</a></li>
+        <li><a href="video.html">Vidéo</a></li>
+        <li><a href="assisatance.html">Assistance</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <!-- Script Menu Burger -->
+  <script>
+    const burger = document.getElementById('burger');
+    const menu = document.getElementById('menu');
+
+    burger.addEventListener('click', () => {
+      burger.classList.toggle('active');
+      menu.classList.toggle('active');
+    });
+  </script>
+
+</body>
+</html>
